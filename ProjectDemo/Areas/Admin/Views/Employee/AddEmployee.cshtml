@@ -1,0 +1,39 @@
+﻿@model EntityLayer.Concrete.Employee
+
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1>Çalışan Oluşturma Sayfası</h1>
+<br />
+@using (Html.BeginRouteForm(
+   routeName: "Admin",
+   routeValues: new { action = "AddEmployee", controller = "Employee", area = "Admin" },
+   method: FormMethod.Post))
+{
+   
+    <br />
+    <br />
+    @Html.Label("Çalışan İsmi")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Çalışan Soyismi")
+    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Çalışan mail")
+    @Html.TextBoxFor(x => x.Employee_mail, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Çalışan password")
+    @Html.TextBoxFor(x => x.Employee_password, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Şube Seçiniz")
+    @Html.DropDownListFor(x => x.Branch_Id, (List<SelectListItem>)ViewBag.branch, new { @class = "form-control" })
+
+    <br />
+    <br />
+    <button class="btn btn-info">Oluştur</button>
+}

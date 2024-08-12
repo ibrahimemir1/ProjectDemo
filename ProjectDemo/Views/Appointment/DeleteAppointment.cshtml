@@ -1,0 +1,24 @@
+﻿@model EntityLayer.Concrete.Appointment
+@{
+    ViewData["Title"] = "DeleteAppointment";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+}
+@using (Html.BeginForm("DeleteAppointment", "Appointment", FormMethod.Post))
+{
+<h3>Randevuyu silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Randevu Detayı</h4>
+    <dl class="row">
+        <dt class="col-sm-3">Tarih</dt>
+        <dd class="col-sm-9">@Model.Date.ToString("yyyy-MM-dd HH:mm")</dd>
+        <dt class="col-sm-3">Randevu Açıklaması</dt>
+        <dd class="col-sm-9">@Model.Description</dd>
+    </dl>
+    <form action="@Url.Action("DeleteConfirmed")" method="post">
+        <input type="hidden" name="Appointment_Id" value="@Model.Appointment_Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="@Url.Action("AppointmentListByEmployee","Appointment")" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+}

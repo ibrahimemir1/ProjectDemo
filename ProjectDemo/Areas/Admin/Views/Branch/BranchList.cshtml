@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<Branch>
+@{
+    ViewData["Title"] = "BranchList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Şube Listesi</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Şube  İsmi</th>
+        <th>Şube Adresi</th>
+        <th>Sil</th>
+        @* <th>Düzenle</th> *@
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Branch_Id</td>
+            <td>@item.Name</td>
+            <td>@item.Adress</td>        
+            <td>
+                <a href="/Admin/Branch/DeleteBranch/@item.Branch_Id/" id="DeleteBtn"
+                   onclick="return confirm('Silmek istediğinize emin misiniz?');" class="btn btn-danger">SİL</a>
+            </td>
+           @*  <td><a href="/Admin/Branch/UpdateBranch/@item.Branch_Id" class="btn btn-warning">Düzenle</a></td> *@
+        </tr>
+    }
+</table>
+<br>
+<a href="/Admin/Branch/AddBranch" class="btn btn-primary">yeni şube ekle</a>
+
+
+
+
+

@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<Branch>
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Şubelerimiz</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Şube İsmi </th>
+                                <th> Şube Adresi </th>
+                               @*  <th>toplam çalışan sayısı</th> *@
+                               
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Branch_Id </td>
+                                    <td>@item.Name </td>
+                                    <td>@item.Adress</td>
+                                 @*   <td>@ViewBag.TotalEmployee</td> *@
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

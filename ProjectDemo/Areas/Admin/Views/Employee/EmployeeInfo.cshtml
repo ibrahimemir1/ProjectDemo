@@ -1,0 +1,36 @@
+﻿
+@using EntityLayer.Concrete
+@model List<Employee>
+@{
+    ViewData["Title"] = "EmployeeInfo";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<table class="table table-bordered">
+   <tr>
+       <th>#</th>
+       <th>Çalışan ismi</th>
+       <th>Çalışan soyismi</th>
+       <th>Çalışan şubesi</th>
+       <th>Çalışan şube adresi</th>
+       <th> SİL </th>
+       <th>DÜZENLE</th>
+   </tr>
+   @foreach (var item in Model)
+   {
+    <tr>
+       <th>@item.Employee_Id</th>
+       <td>@item.Name</td>
+       <td>@item.Surname</td>
+       <td>@item.Branch.Name</td>
+       <td>@item.Branch.Adress</td>
+       <td> <a href ="/Admin/Employee/EmployeeDelete/@item.Employee_Id/" id ="DeleteBtn"
+          onclick="return confirm('Silmek istediğinize emin misiniz?');" class="btn btn-danger">SİL</a></td>
+       <td> <a href ="#" class="btn btn-success">DÜZENLE</a></td>
+    </tr >
+   }
+</table>
+<br>
+<a href="/Admin/Employee/AddEmployee" class="btn btn-primary">yeni çalışan ekle</a>
+<br />
+<br />
+@* @Html.PagedListPager((IPagedList)Model,page=>Url.Action("EmployeeInfo",new {page})) *@

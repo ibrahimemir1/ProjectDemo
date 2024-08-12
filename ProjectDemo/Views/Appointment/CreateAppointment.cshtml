@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.Appointment
+
+@{
+    ViewData["Title"] = "CreateAppointment";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+<h1>Randevu Oluşturma Sayfası</h1>
+<br />
+
+@using (Html.BeginForm("CreateAppointment", "Appointment", FormMethod.Post))
+{
+    @Html.Label("Tarih seçiniz")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control", @type = "datetime-local" })
+    @Html.ValidationMessageFor(x => x.Date, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("İşlem Açıklaması")
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control"})
+    <br />
+    <br />
+    @Html.Label("Şube Seçiniz")
+    @Html.DropDownListFor(x => x.Employee_Id, (List<SelectListItem>)ViewBag.bv, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Çalışan Seçiniz")
+    @Html.DropDownListFor(x => x.Employee_Id, (List<SelectListItem>)ViewBag.ev, new { @class = "form-control" })
+  @*   @Html.Label("Müşteri ismi")
+    @Html.TextBoxFor(x => x.Customer.Name, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Müşteri soyismi")
+    @Html.TextBoxFor(x => x.Customer.Surname, new { @class = "form-control" })
+
+    <br />
+    <br /> *@
+    @Html.TextBoxFor(x => x.Customer_Id, new { style = "display: none;" })
+    @Html.TextBoxFor(x => x.IsActive, new { style = "display: none;" })
+    @Html.TextBoxFor(x => x.Employee_Id, new { style = "display: none;" })
+    @Html.TextBoxFor(x => x.Appointment_Id, new { style = "display: none;" })
+
+    <br />
+    <br />
+    <button class="btn btn-success">Oluştur</button>
+    }

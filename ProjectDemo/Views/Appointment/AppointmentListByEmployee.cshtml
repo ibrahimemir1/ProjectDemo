@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<Appointment> 
+@{
+    ViewData["Title"] = "AppointmentListByEmployee";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+}
+
+ <h1>işlem yapan müşteri listesi</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>açıklama</th>
+        <th>tarih</th>
+        <th>müşteri adı</th>
+        <th>müşteri soy ismi</th>
+        <th>durum</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.Description</th>  
+            <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
+            <td>@item.Customer.Name</td>
+            <td>@item.Customer.Surname</td>
+            @if (item.Date < DateTime.Now)
+            {
+                <td>Pasif</td>
+            }
+            else
+            {
+                <td>Aktif</td>
+            }
+            <td><a href="/Appointment/DeleteAppointment/@item.Appointment_Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Appointment/UpdateAppointment/@item.Appointment_Id" class="btn btn-warning">Düzenle</a></td>
+        </tr>
+    }
+</table>
+
+
+
+

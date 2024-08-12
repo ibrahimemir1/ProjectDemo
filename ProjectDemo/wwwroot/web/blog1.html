@@ -1,0 +1,141 @@
+
+<link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<script src="../lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Randevu Sayfam</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="banka" />
+
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="css/single.css">
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<link href="css/fontawesome-all.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+		  rel="stylesheet">
+</head>
+
+<body>
+	<!--Header-->
+
+	<header>
+		<div class="top-bar_sub_w3layouts container-fluid">
+			<div class="row">
+				<div class="col-md-4 logo text-left">
+					<a class="navbar-brand" href="index.html">
+						<i class="fab fa-linode"></i> BANK
+					</a>
+				</div>
+				<div class="col-md-4 top-forms text-center mt-lg-3 mt-md-1 mt-0">
+					<span>Tekrar Hoşgeldiniz</span>
+					<span class="mx-lg-4 mx-md-2  mx-1">
+						<a href=/Login/Index">
+							<i class="fas fa-lock"></i> Giriş yap
+						</a>
+					</span>
+					<span>
+						<a href="/Register/Index">
+							<i class="far fa-user"></i> Müşteri Ol
+						</a>
+					</span>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="header_top" id="home">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<button class="navbar-toggler navbar-toggler-right mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="/Customer/Index">
+								Ana Sayfa
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/Appointment/CreateAppointment">Randevu Oluştur</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/Appointment/AppointmentList"	">Randevu listem</a>
+						</li>
+
+					</ul>
+					<form action="#" method="post" class="form-inline my-2 my-lg-0 header-search">
+						<input class="form-control mr-sm-2" type="search" placeholder="aranacak kelime..." name="Search" required="">
+						<button class="btn btn1 my-2 my-sm-0" type="submit">
+							<i class="fas fa-search"></i>
+						</button>
+					</form>
+
+
+
+				</div>
+			</nav>
+
+		</div>
+	</header>
+	
+	<script src="js/jquery-2.2.3.min.js"></script>
+	
+	<script src="js/move-top.js"></script>
+	<script src="js/easing.js"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 900);
+			});
+		});
+	</script>
+	
+
+	<script>
+		$(document).ready(function () {
+			/*
+									var defaults = {
+											containerID: 'toTop', // fading element id
+										containerHoverID: 'toTopHover', // fading element hover id
+										scrollSpeed: 1200,
+										easingType: 'linear'
+										};
+									*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<a href="#home" class="scroll" id="toTop" style="display: block;">
+		<span id="toTopHover" style="opacity: 1;"> </span>
+	</a>
+
+	<!-- //Custom-JavaScript-File-Links -->
+	<script src="js/bootstrap.js"></script>
+
+
+</body>
+
+</html>

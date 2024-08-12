@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model IEnumerable<Appointment>
+   @{ ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+<br />
+<br />
+<h2>Appointments</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tarih</th>
+            <th>Aktif mi?</th>                       
+            <th>Açıklama</th>
+            <th>Personel ismi</th> 
+            <th>Personel soyismi</th>
+            <th>SİL</th> 
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model)
+        {
+           <tr>
+             <td>@appointment.Date.ToString("yyyy-MM-dd HH:mm")</td>
+                @if (@appointment.Date < DateTime.Now)
+                {
+                    <td>Pasif</td>
+                }
+                else
+                {
+                    <td>Aktif</td>
+                }
+             <td>@appointment.Description</td>
+             <td>@appointment.Employee.Name</td>
+             <td>@appointment.Employee.Surname</td>      
+                <td>
+                    <a href="/Appointment/DeleteAppointmentWithCust/@appointment.Appointment_Id/" id="DeleteBtn"
+                       onclick="return confirm('Silmek istediğinize emin misiniz?');" class="btn btn-danger">SİL</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("CreateAppointment")" class="btn btn-success">Yeni Randevu Oluştur</a>

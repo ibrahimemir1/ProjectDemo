@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model List<Appointment>
+@{
+    ViewData["Title"] = "AppointmentList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Randevu Listesi</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Randevu Açıklaması</th>
+        <th>Müşteri İsmi</th>
+        <th>Müşteri Soyismi</th>
+        <th>Durumu</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Appointment_Id</td>
+            <td>@item.Description</td>
+            <td>@item.Customer.Name</td>
+            <td>@item.Customer.Surname</td>
+            @if (item.Date < DateTime.Now)
+            {
+                <td>Pasif</td>
+            }
+            else
+            {
+                <td>Aktif</td>
+            }
+            <td>
+                <a href="/Admin/Appointment/AppointmentDelete/@item.Appointment_Id/" id="DeleteBtn"
+                   onclick="return confirm('Silmek istediğinize emin misiniz?');" class="btn btn-danger">SİL</a>
+            </td>     
+            <td><a href="/Admin/Appointment/UpdateAppointment/@item.Appointment_Id" class="btn btn-warning">Düzenle</a></td>
+
+        </tr>
+    }
+</table>
+
+
+
+
